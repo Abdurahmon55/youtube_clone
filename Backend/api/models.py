@@ -19,6 +19,7 @@ class Like(models.Model):
 
 class VideoCommet(models.Model):
     message=models.TextField(blank=True)
+    commetTime=models.DateTimeField(auto_now_add=True)
     owner=models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     commet=models.ForeignKey(Video, on_delete=models.CASCADE, related_name='commets')
 
@@ -28,6 +29,7 @@ class Views(models.Model):
 
 class replyedCommet(models.Model):
     message=models.TextField(blank=True)
+    replyedTime=models.DateTimeField(auto_now_add=True)
     owner=models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     replyed=models.ForeignKey(VideoCommet, on_delete=models.CASCADE, related_name='replyeds')
 
